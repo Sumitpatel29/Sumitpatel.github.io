@@ -5,280 +5,663 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sumit Patel's Portfolio</title>
+  <title>Sumit Patel | AI/ML Engineer & Backend Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Sumit Patel, AI/ML Engineer and Backend Developer specializing in conversational AI voice agents, LLM applications, FastAPI, and scalable backend microservices." />
+  <meta name="keywords"
+    content="Sumit Patel, AI/ML Engineer, Backend Developer, Voice Agent, LiveKit, Sarvam AI, FastAPI, Python, Odia Voice Agent" />
+  <meta name="author" content="Sumit Patel" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sumit Patel | AI/ML Engineer & Backend Developer" />
+  <meta property="og:description"
+    content="Explore production-grade Conversational AI Voice Agents, LLM Integrations, and Backend Systems built by Sumit Patel." />
+  <meta property="og:url" content="https://sumitpatel29.github.io" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600&family=Poppins:wght@500;600;700&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
+  <!-- Theme Initialization Script (Prevents FOUT / Flash of Unstyled Theme) -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('sumit_portfolio_theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = (saved === 'dark' || saved === 'light') ? saved : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mediaqueries.css" />
 </head>
 
 <body>
+  <!-- DESKTOP NAVIGATION -->
   <nav id="desktop-nav">
-    <div class="logo"><b>Sumit.Dev</b></div>
-    <div>
+    <div class="logo" onclick="location.href='#profile'"><b>Sumit.Dev</b></div>
+    <div class="desktop-nav-right">
       <ul class="nav-links">
-        <li><a href="#home"><b>Home</b></a></li>
-        <li><a href="#about"><b>About</b></a></li>
-        <li><a href="#projects"><b>Projects</b></a></li>
-        <li><a href="#contact"><b>Contact</b></a></li>
+        <li><a href="#profile" id="nav-link-home">Home</a></li>
+        <li><a href="#about" id="nav-link-about">About</a></li>
+        <li><a href="#experience" id="nav-link-experience">Experience</a></li>
+        <li><a href="#skills" id="nav-link-skills">Skills</a></li>
+        <li><a href="#projects" id="nav-link-projects">Projects</a></li>
+        <li><a href="#contact" id="nav-link-contact">Contact</a></li>
       </ul>
+      <!-- Theme Toggle Switch -->
+      <button class="theme-toggle-btn" id="desktop-theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" role="switch" aria-checked="false" title="Switch Theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-icon icon-sun">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-toggle-icon icon-moon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </div>
   </nav>
+
+  <!-- MOBILE HAMBURGER NAVIGATION -->
   <nav id="hamburger-nav">
-    <div class="logo"><b>Sumit.Dev</b></div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">Home</a></li>
-        <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    <div class="logo" onclick="location.href='#profile'"><b>Sumit.Dev</b></div>
+    <div class="mobile-nav-actions">
+      <!-- Mobile Theme Toggle -->
+      <button class="theme-toggle-btn" id="mobile-theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" role="switch" aria-checked="false" title="Switch Theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-icon icon-sun">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-toggle-icon icon-moon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" id="mobile-hamburger-btn" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#profile" onclick="toggleMenu()">Home</a></li>
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
       </div>
     </div>
   </nav>
+
+  <!-- HERO / PROFILE SECTION -->
   <section id="profile">
     <div class="section__pic-container">
-      <img src="./assets/cropped_image.png" alt="Sumit profile picture" />
+      <img src="./assets/cropped_image.png" alt="Sumit Patel Profile Picture" id="hero-profile-img" />
     </div>
     <div class="section__text">
       <p class="section__text__p1">Hello, I'm</p>
       <h1 class="title">Sumit Patel</h1>
-      <p class="section__text__p2">JAVA Full Stack Developer</p>
+      <p class="section__text__p2">AI/ML Engineer | Backend Developer</p>
+      <p class="section__tagline">
+        Specializing in Conversational AI Voice Agents, Telephony Pipelines (LiveKit/SIP), LLM Integrations & High-Throughput FastAPI Architectures.
+      </p>
       <div class="btn-container">
-        <button class="btn btn-color-2" onclick="window.open('./assets/Sumit Patel Resume.pdf')">
+        <button class="btn btn-color-2" id="btn-download-cv"
+          onclick="window.open('./assets/Sumit_Kumar_Patel_Resume.pdf')">
           Download CV
         </button>
-        <button class="btn btn-color-1" onclick="location.href='#contact'">
+        <button class="btn btn-color-1" id="btn-view-projects" onclick="location.href='#projects'">
+          View Projects
+        </button>
+        <button class="btn btn-color-2" id="btn-contact-info" onclick="location.href='#contact'">
           Contact Info
         </button>
       </div>
       <div id="socials-container">
-        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
-          onclick="location.href='https://www.linkedin.com/in/sumit-patel-8845511ab/'" />
-        <img src="./assets/github.png" alt="My Github profile" class="icon"
-          onclick="location.href='https://github.com/Sumitpatel29'" />
+        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon" id="social-linkedin"
+          onclick="window.open('https://www.linkedin.com/in/sumit-patel-8845511ab/', '_blank')" />
+        <img src="./assets/github.png" alt="My Github profile" class="icon" id="social-github"
+          onclick="window.open('https://github.com/Sumitpatel29', '_blank')" />
       </div>
     </div>
   </section>
+
+  <!-- ABOUT SECTION -->
   <section id="about">
     <p class="section__text__p1">Get To Know More</p>
     <h1 class="title">About Me</h1>
     <div class="section-container">
       <div class="section__pic-container">
-        <img src="./assets/about-pic.jpg" alt="Profile picture" class="about-pic" />
+        <img src="./assets/about-pic.jpg" alt="Sumit Patel" class="about-pic" id="about-pic" />
       </div>
       <div class="about-details-container">
         <div class="about-containers">
           <div class="details-container">
-            <img src="./assets/experience.png" alt="Experience icon" class="icon" />
-            <h3>Skills</h3>
-            <p><br />FullStack Development <br /> and <br />Frontend Development</p>
+            <img src="./assets/experience.png" alt="Focus icon" class="icon" />
+            <h3>Specialization</h3>
+            <p>
+              Conversational Voice Agents<br />
+              LLM Pipelines & Telephony<br />
+              Backend Microservices
+            </p>
           </div>
           <div class="details-container">
             <img src="./assets/education.png" alt="Education icon" class="icon" />
             <h3>Education</h3>
-            <p><br>BSc. Computer Science graduate with 8.4 CGPA (2020-2023)<br>12th in science with 70% <br>
-              (2018-2020)</br></p>
+            <p>
+              <b>MCA</b> — ITER, Bhubaneswar<br />(2024 – 2026)<br />
+              <b>B.Sc. Computer Science</b> — 8.4 CGPA<br />(2020 – 2023)
+            </p>
           </div>
         </div>
         <div class="text-container">
           <p>
-            Self driven computer science graduate with passion in programming. Seeking a role where I can leverage my
-            academic skills on realtime project, passion for coding, to add value, participate in meaningful work and
-            grow my skillset for the success of company's project.
+            AI/ML Engineer and Backend Developer specializing in production-grade conversational AI voice agents,
+            real-time telephony pipelines (LiveKit, Sarvam AI, Plivo SIP), and high-performance Python/FastAPI microservices.
+            Passionate about architecting end-to-end intelligent automation systems—from multilingual speech workflows to
+            automated lead qualification engines—that turn state-of-the-art models into resilient, scalable business solutions.
           </p>
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#skills'" />
+    <img src="./assets/arrow.png" alt="Scroll arrow" class="icon arrow" onclick="location.href='#experience'" />
   </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience">
+    <p class="section__text__p1">Explore My Career</p>
+    <h1 class="title">Professional Experience</h1>
+
+    <div class="experience-container">
+      <div class="experience-card" id="experience-upskalor">
+        <div class="experience-card-header">
+          <div class="experience-role-info">
+            <h2>AI / Backend Engineer</h2>
+            <div class="experience-company">
+              <span>Upskalor Technologies LLP</span>
+              <span class="experience-location">• India (Hybrid)</span>
+            </div>
+          </div>
+          <span class="experience-badge">2026 – Sep 2026</span>
+        </div>
+
+        <p class="experience-summary">
+          Engineered production-grade backend microservices and conversational AI communication systems using Python, FastAPI, MongoDB, Redis, Docker, LiveKit, Plivo telephony, Meta WhatsApp Cloud API, OpenAI, and Sarvam AI. Built resilient, real-time voice and webhook pipelines with asynchronous task processing, robust security protocols, and 300+ automated test suites.
+        </p>
+
+        <!-- Core Systems Built Grid -->
+        <div class="deliverables-grid">
+
+          <!-- Deliverable 1 -->
+          <div class="deliverable-card">
+            <h4>🎙️ Sahayak Odia Voice Agent</h4>
+            <ul class="deliverable-bullets">
+              <li>Architected a self-hosted, real-time conversational AI agent capable of understanding and responding in Odia over SIP phone calls.</li>
+              <li>Integrated LiveKit for real-time media processing and WebRTC/SIP communication for inbound and outbound calls via Plivo.</li>
+              <li>Integrated Sarvam AI speech models (STT/TTS) with GPT-4o-mini as the conversational reasoning layer.</li>
+              <li>Deployed on VPS using Docker Compose, Nginx, Redis, and systemd; tuned audio buffering, latency, and RTP firewall rules.</li>
+            </ul>
+          </div>
+
+          <!-- Deliverable 2 -->
+          <div class="deliverable-card">
+            <h4>📱 Missed-Call to WhatsApp Follow-up</h4>
+            <ul class="deliverable-bullets">
+              <li>Developed a multi-tenant FastAPI service detecting missed calls via Plivo webhooks and auto-triggering WhatsApp template communications via Meta Cloud API.</li>
+              <li>Built asynchronous background workers using arq and Redis to decouple webhook ingestion from message delivery.</li>
+              <li>Implemented idempotency, deduplication, and Plivo HMAC signature verification; secured tenant Meta credentials with Fernet encryption.</li>
+              <li>Built 300+ automated pytest test suites using mocks, timezone-aware business-hour logic, and send-allowlist safety rollout gates.</li>
+            </ul>
+          </div>
+
+          <!-- Deliverable 3 -->
+          <div class="deliverable-card">
+            <h4>💬 WhatsApp Lead Qualification Bot</h4>
+            <ul class="deliverable-bullets">
+              <li>Engineered a conversational WhatsApp lead qualification agent with a structured 10-question flow in Odia.</li>
+              <li>Implemented a conversational state machine to maintain progress and context; scored leads into HOT, WARM, and COLD categories.</li>
+              <li>Integrated Google Sheets export for automatic qualified lead handoffs to business operations.</li>
+              <li>Built JWT-secured management dashboard APIs, Meta webhook verification (X-Hub-Signature-256), and MongoDB Beanie ODM persistence.</li>
+            </ul>
+          </div>
+
+          <!-- Deliverable 4 -->
+          <div class="deliverable-card">
+            <h4>📞 Outbound Calling & Campaign Services</h4>
+            <ul class="deliverable-bullets">
+              <li>Developed FastAPI services for immediate and scheduled outbound calling workflows.</li>
+              <li>Implemented scheduled call execution via APScheduler; served live task metrics from MongoDB to the voice agent for dynamic worker briefings.</li>
+              <li>Built an auto-dialer campaign API with lead tracking and CSV import/export functionality.</li>
+              <li>Created a Streamlit-based control dashboard for managing, monitoring, and inspecting active calling campaigns.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Tech Stack Tags -->
+        <div class="experience-tech-wrapper">
+          <span class="experience-tech-label">Technologies:</span>
+          <span class="tech-tag">Python 3.11</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">LiveKit Agents</span>
+          <span class="tech-tag">Sarvam AI</span>
+          <span class="tech-tag">OpenAI GPT-4o</span>
+          <span class="tech-tag">Plivo SIP</span>
+          <span class="tech-tag">Meta WhatsApp API</span>
+          <span class="tech-tag">Redis & arq</span>
+          <span class="tech-tag">MongoDB (Beanie)</span>
+          <span class="tech-tag">Docker Compose</span>
+          <span class="tech-tag">APScheduler</span>
+          <span class="tech-tag">pytest (300+ Tests)</span>
+          <span class="tech-tag">Streamlit</span>
+        </div>
+
+      </div>
+    </div>
+
+    <img src="./assets/arrow.png" alt="Scroll arrow" class="icon arrow" onclick="location.href='#skills'" />
+  </section>
+
+  <!-- SKILLS SECTION -->
   <section id="skills">
     <p class="section__text__p1">Explore My</p>
-    <h1 class="title">Skills</h1>
+    <h1 class="title">Skills & Technologies</h1>
     <div class="experience-details-container">
-      <div class="about-containers">
+      <div class="skills-grid-wrapper">
+
+        <!-- Card 1: AI/ML & Voice Intelligence -->
         <div class="details-container">
-          <h2 class="experience-sub-title">Sound Knowledge on</h2>
+          <h2 class="experience-sub-title">AI & Voice Intelligence</h2>
           <div class="article-container">
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>Java</h3>
-                <p>Experienced</p>
+                <h3>LiveKit Agents</h3>
+                <p>Real-time Audio</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <div>
-                  <h3>Pyhton</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                <h3>C#</h3>
-                <p>Experienced</p>
+                <h3>Sarvam AI</h3>
+                <p>Odia/Indic STT & TTS</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>JavaScript</h3>
-                <p>Intermediate</p>
+                <h3>OpenAI GPT-4o</h3>
+                <p>LLM Reasoning</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>Google Gemini</h3>
+                <p>NLP / Interpretation</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>Voice Telephony</h3>
+                <p>SIP / WebRTC</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>State Machines</h3>
+                <p>Conversational Logic</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Card 2: Backend Architecture -->
+        <div class="details-container">
+          <h2 class="experience-sub-title">Backend Architecture</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>Python</h3>
+                <p>Advanced / Production</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>FastAPI</h3>
+                <p>Async APIs & Microservices</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>MongoDB</h3>
+                <p>Beanie ODM & Schemas</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>Redis</h3>
+                <p>Caching & Queues</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>Java / Spring</h3>
+                <p>Full-Stack / MVC</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
                 <h3>MySQL</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>HTML</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>CSS</h3>
-                <p>Experienced</p>
+                <p>Relational Databases</p>
               </div>
             </article>
           </div>
         </div>
+
+        <!-- Card 3: DevOps & Core Engineering -->
         <div class="details-container">
-          <h2 class="experience-sub-title">Familiar with</h2>
+          <h2 class="experience-sub-title">DevOps & Core Stack</h2>
           <div class="article-container">
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>JDBC</h3>
-                <p>Intermediate</p>
+                <h3>Docker</h3>
+                <p>Compose & Containers</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>Hibernate</h3>
-                <p>Intermediate</p>
+                <h3>Plivo SIP</h3>
+                <p>Telephony Trunks</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>Spring</h3>
-                <p>Intermediate</p>
+                <h3>APScheduler</h3>
+                <p>Job Scheduling</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>Spring MVC</h3>
-                <p>Intermediate</p>
+                <h3>GitHub Actions</h3>
+                <p>CI/CD Pipelines</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
               <div>
-                <h3>GitHub</h3>
-                <p>Intermediate</p>
+                <h3>JavaScript</h3>
+                <p>ES6+ & HTML5/CSS3</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
+              <div>
+                <h3>C# / .NET</h3>
+                <p>Application Dev</p>
               </div>
             </article>
           </div>
         </div>
+
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    <img src="./assets/arrow.png" alt="Scroll arrow" class="icon arrow" onclick="location.href='#projects'" />
   </section>
+
+  <!-- PROJECTS SECTION -->
   <section id="projects">
     <p class="section__text__p1">Browse My Recent</p>
-    <h1 class="title">Projects</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Simple Calculator</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/Sumitpatel29/calculatorproject/'">
-              Github
-            </button>
+    <h1 class="title">Featured Projects</h1>
 
-          </div>
+    <!-- Category Filter Controls -->
+    <div class="projects-filter-container">
+      <button class="filter-btn active" data-filter="all" id="filter-all" onclick="filterProjects('all')">
+        All Projects <span class="filter-count">5</span>
+      </button>
+      <button class="filter-btn" data-filter="ai" id="filter-ai" onclick="filterProjects('ai')">
+        AI & Voice Automation (Oct 2026) <span class="filter-count">4</span>
+      </button>
+      <button class="filter-btn" data-filter="fullstack" id="filter-fullstack" onclick="filterProjects('fullstack')">
+        Software & Systems <span class="filter-count">1</span>
+      </button>
+    </div>
+
+    <!-- GROUP 1: LATEST AI & VOICE AUTOMATION PROJECTS (Oct 9, 2026) -->
+    <div class="projects-group-header" id="ai-projects-header">
+      <h2>Featured AI & Automation Systems</h2>
+      <span class="group-badge-new">★ Released Oct 9, 2026</span>
+    </div>
+
+    <div class="projects-grid" id="ai-projects-grid">
+      
+      <!-- Project 1: Sahayak Odia Voice Agent -->
+      <div class="project-card featured-card" data-category="ai" id="project-card-voice-agent">
+        <div class="project-img-wrapper">
+          <span class="project-badge-tag badge-voice">AI Voice Telephony</span>
+          <img src="./assets/project-voice-agent.jpg" alt="Sahayak Odia Voice Agent" class="project-img" />
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Screen Share WebApp</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/Sumitpatel29/screen_share_web'">
-              Github
-            </button>
-
-          </div>
+        <h3 class="project-title">Sahayak Odia Voice Agent</h3>
+        <p class="project-desc">
+          Self-hosted, real-time conversational phone voice agent speaking and understanding Odia, English, and Hindi. Integrates Sarvam AI speech models (STT/TTS), OpenAI GPT-4o-mini reasoning, LiveKit SIP bridge, and Plivo telephony.
+        </p>
+        <div class="project-tags">
+          <span class="tech-tag">Python 3.11</span>
+          <span class="tech-tag">LiveKit Agents</span>
+          <span class="tech-tag">Sarvam AI</span>
+          <span class="tech-tag">OpenAI</span>
+          <span class="tech-tag">Plivo SIP</span>
+          <span class="tech-tag">Docker</span>
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Banking System</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Sumitpatel29/BankingSystem-Java'">
-              Github
-            </button>
-            </button>
-
-          </div>
+        <div class="project-btn-container">
+          <button class="project-btn" id="btn-repo-voice-agent"
+            onclick="window.open('https://github.com/Sumitpatel29/sahayak_odia_voice_agent', '_blank')">
+            <img src="./assets/github.png" alt="GitHub" class="btn-icon" /> View on GitHub
+          </button>
         </div>
       </div>
+
+      <!-- Project 2: WhatsApp Lead Qualification Bot -->
+      <div class="project-card featured-card" data-category="ai" id="project-card-whatsapp-bot">
+        <div class="project-img-wrapper">
+          <span class="project-badge-tag badge-nlp">Conversational AI & Scoring</span>
+          <img src="./assets/project-whatsapp-bot.jpg" alt="WhatsApp Lead Qualification Bot" class="project-img" />
+        </div>
+        <h3 class="project-title">WhatsApp Lead Qualification Bot</h3>
+        <p class="project-desc">
+          Multi-tenant FastAPI and MongoDB service featuring outbound WhatsApp campaign messaging, a 10-question conversational qualification flow in Odia, Gemini Flash reply interpretation, and dynamic HOT/WARM/COLD lead scoring.
+        </p>
+        <div class="project-tags">
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Google Gemini</span>
+          <span class="tech-tag">MongoDB / Beanie</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">WhatsApp API</span>
+          <span class="tech-tag">JWT</span>
+        </div>
+        <div class="project-btn-container">
+          <button class="project-btn" id="btn-repo-whatsapp-bot"
+            onclick="window.open('https://github.com/Sumitpatel29/whatsapp_lead_qualification_bot', '_blank')">
+            <img src="./assets/github.png" alt="GitHub" class="btn-icon" /> View on GitHub
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 3: Solar Lead Campaign Auto-Dialer -->
+      <div class="project-card featured-card" data-category="ai" id="project-card-solar-dialer">
+        <div class="project-img-wrapper">
+          <span class="project-badge-tag badge-dialer">Telephony Automation</span>
+          <img src="./assets/project-solar-dialer.jpg" alt="Solar Lead Campaign Auto-Dialer" class="project-img" />
+        </div>
+        <h3 class="project-title">Solar Lead Auto-Dialer Campaign</h3>
+        <p class="project-desc">
+          Sequential outbound auto-dialer platform executing scheduled calls during permissible hours. Integrates an Odia AI voice agent to qualify solar prospects, gather rooftop ownership & subsidy data, monitored via Streamlit.
+        </p>
+        <div class="project-tags">
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">AI Voice Agent</span>
+          <span class="tech-tag">Telephony Pipeline</span>
+        </div>
+        <div class="project-btn-container">
+          <button class="project-btn" id="btn-repo-solar-dialer"
+            onclick="window.open('https://github.com/Sumitpatel29/solar_lead_campaign_auto_dialer', '_blank')">
+            <img src="./assets/github.png" alt="GitHub" class="btn-icon" /> View on GitHub
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 4: Sahayak Call Services Scheduler -->
+      <div class="project-card featured-card" data-category="ai" id="project-card-call-scheduler">
+        <div class="project-img-wrapper">
+          <span class="project-badge-tag badge-scheduler">Microservices & Scheduling</span>
+          <img src="./assets/project-call-scheduler.jpg" alt="Sahayak Call Services Scheduler" class="project-img" />
+        </div>
+        <h3 class="project-title">Sahayak Call Services Scheduler</h3>
+        <p class="project-desc">
+          High-reliability FastAPI and APScheduler dispatch microservice for immediate outbound calling, daily scheduled briefings, dynamic MongoDB worker metrics reporting to the voice agent, and automated missed-call callback loop.
+        </p>
+        <div class="project-tags">
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">APScheduler</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">Python</span>
+        </div>
+        <div class="project-btn-container">
+          <button class="project-btn" id="btn-repo-call-scheduler"
+            onclick="window.open('https://github.com/Sumitpatel29/sahayak_call_services_scheduler', '_blank')">
+            <img src="./assets/github.png" alt="GitHub" class="btn-icon" /> View on GitHub
+          </button>
+        </div>
+      </div>
+
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+
+    <!-- GROUP 2: SOFTWARE & FULL-STACK PROJECTS (PREVIOUS WORKS) -->
+    <div class="projects-group-header" id="web-projects-header" style="margin-top: 3.5rem;">
+      <h2>Software & Full-Stack Projects</h2>
+    </div>
+
+    <div class="projects-grid" id="web-projects-grid">
+
+      <!-- Project 5: Banking System -->
+      <div class="project-card" data-category="fullstack" id="project-card-banking-system">
+        <div class="project-img-wrapper">
+          <span class="project-badge-tag badge-web">Java & Database</span>
+          <img src="./assets/project-3.png" alt="Banking System" class="project-img" />
+        </div>
+        <h3 class="project-title">Banking System</h3>
+        <p class="project-desc">
+          Secure full-featured banking management desktop system built with Java, JDBC database connectivity, and MySQL, implementing account transactions, statements, and security validations.
+        </p>
+        <div class="project-tags">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">JDBC</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">OOP</span>
+        </div>
+        <div class="project-btn-container">
+          <button class="project-btn" id="btn-repo-banking"
+            onclick="window.open('https://github.com/Sumitpatel29/BankingSystem-Java', '_blank')">
+            <img src="./assets/github.png" alt="GitHub" class="btn-icon" /> View on GitHub
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <img src="./assets/arrow.png" alt="Scroll arrow" class="icon arrow" onclick="location.href='#contact'" />
   </section>
+
+  <!-- CONTACT SECTION -->
   <section id="contact">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Contact Me</h1>
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
         <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-        <p><a href="mailto:https://sumitpatelofficial1@gmail.com">sumitpatelofficial1@gmail.com</a></p>
+        <p><a href="mailto:sumitpatelofficial1@gmail.com" id="contact-email-link">sumitpatelofficial1@gmail.com</a></p>
       </div>
       <div class="contact-info-container">
         <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
-        <p><a href="https://www.linkedin.com/in/sumit-patel-8845511ab/">LinkedIn</a></p>
+        <p><a href="https://www.linkedin.com/in/sumit-patel-8845511ab/" target="_blank" id="contact-linkedin-link">LinkedIn</a></p>
+      </div>
+      <div class="contact-info-container">
+        <img src="./assets/github.png" alt="GitHub icon" class="icon contact-icon" />
+        <p><a href="https://www.github.com/Sumitpatel29" target="_blank" id="contact-github-link">GitHub</a></p>
       </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer>
     <nav>
       <div class="nav-links-container">
         <ul class="nav-links">
-          <li><a href="#menu-links">Home</a></li>
+          <li><a href="#profile">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
-    <p>Copyright &#169; 2023 Sumit Patel. All Rights Reserved.</p>
+    <p>Copyright &#169; 2026 Sumit Patel. All Rights Reserved.</p>
   </footer>
- 
+
+  <script src="script.js"></script>
 </body>
 
 </html>
